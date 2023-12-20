@@ -91,10 +91,6 @@
 
 stock GetPosNearVehiclePart(vehicleid, part, &Float:x, &Float:y, &Float:z, Float:offset = 0.5)
 {
-	#if defined COLANDREAS
-	new Float:cz;
-	#endif
-
 	new Float:X,Float:Y,Float:Z,Float:A;
 	GetVehiclePos(vehicleid, x, y, z);
 	GetVehicleZAngle(vehicleid, A);
@@ -199,10 +195,6 @@ stock GetPosNearVehiclePart(vehicleid, part, &Float:x, &Float:y, &Float:z, Float
 			z += Z;
 		}
 	}
-	#if defined COLANDREAS
-	CA_RayCastLine(x, y, z, x, y, z + 5.0, cz, cz, cz);
-	if (cz != 0.0) z = cz + offset;
-	#endif
 }
 
 stock GetVehiclePartPos(vehicleid, part, &Float:x, &Float:y, &Float:z)
